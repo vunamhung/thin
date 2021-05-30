@@ -2,7 +2,7 @@
 	"name": "vunamhung/thin",
 	"description": "Thin is a robust and flexible WordPress theme, designed and built by Vu Nam Hung to help you make the most out of using the WooCommerce plugin to power your online store. It's available to download for free from the WordPress theme repository.",
 	"type": "wordpress-theme",
-	"license": "MIT",
+	"license": "GPL-3.0-or-later",
 	"require-dev": {
 		"squizlabs/php_codesniffer": "3.6.0",
 		"wp-coding-standards/wpcs": "2.3.0",

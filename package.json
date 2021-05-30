@@ -1,6 +1,6 @@
 {
 	"author": "Vu Nam Hung",
-	"license": "MIT",
+	"license": "GPL-3.0-or-later",
 	"devDependencies": {
 		"@woocommerce/eslint-plugin": "1.2.0",
 		"@wordpress/browserslist-config": "4.0.0",
