@@ -4,3 +4,4 @@ docs/
 dist/
 .idea/
 /src/languages/
+/src/style.css

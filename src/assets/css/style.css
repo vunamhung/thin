@@ -1,0 +1,16 @@
+/*!
+Theme Name: vnh_title
+Author: vnh_author
+Author URI: vnh_author_uri
+Theme URI: vnh_uri
+Description: vnh_description
+Version: vnh_version
+License: vnh_license
+License URI: vnh_license_uri
+Text Domain: vnh_textdomain
+Tags: vnh_tags
+Document URI: vnh_document_uri
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
