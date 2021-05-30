@@ -1,6 +1,27 @@
 {
 	"author": "Vu Nam Hung",
 	"license": "GPL-3.0-or-later",
+	"theme": {
+		"prefix": "thin",
+		"name": "thin",
+		"title": "Thin",
+		"short_title": "Thin",
+		"version": "1.0.0",
+		"tags": "accessibility-ready, custom-colors, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, translation-ready",
+		"uri": "https://hungvu.work",
+		"author": "Vu Nam Hung",
+		"author_uri": "https://hungvu.work",
+		"theme_uri": "https://hungvu.work",
+		"document_uri": "https://base.hungvu.work/documentation",
+		"wp_requires": "5.0",
+		"php_requires": "5.6",
+		"tested_up_to": "5.1.1",
+		"dev_mode": "disable",
+		"license": "GNU General Public License version 3",
+		"license_uri": "http://www.opensource.org/licenses/gpl-license.php",
+		"copyright": "Copyright (c) 2019, Hung Vu",
+		"description": "The best food blog WordPress theme"
+	},
 	"devDependencies": {
 		"@woocommerce/eslint-plugin": "1.2.0",
 		"@wordpress/browserslist-config": "4.0.0",
@@ -11,6 +32,8 @@
 		"autoprefixer": "10.2.6",
 		"browserslist": "4.16.6",
 		"eslint-plugin-prettier": "^3.4.0",
+		"esm": "^3.2.25",
+		"gulp": "^4.0.2",
 		"node-wp-i18n": "1.2.5",
 		"prettier": "npm:wp-prettier@2.0.5"
 	}

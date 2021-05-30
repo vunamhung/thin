@@ -6,6 +6,7 @@ module.exports = {
 	settings: {},
 	rules: {
 		'woocommerce/feature-flag': 'off',
+		'@woocommerce/dependency-group': 'off',
 		'@wordpress/no-global-active-element': 'warn',
 	},
 	ignorePatterns: [ '**/*.min.js' ],
