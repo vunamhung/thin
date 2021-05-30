@@ -2,9 +2,12 @@
 	"author": "Vu Nam Hung",
 	"license": "GPL-3.0-or-later",
 	"scripts": {
+		"css:build": "NODE_ENV=production postcss ./src/assets/css/style.css -o ./src/style.css",
+		"js:build": "webpack --mode=production",
 		"css:dev": "NODE_ENV=development postcss ./src/assets/css/style.css -o ./src/style.css -w",
-		"css:build": "NODE_ENV=production postcss ./src/assets/css/style.css -o ./src/style.css"
+		"start": "webpack --watch & css:dev & gulp default"
 	},
+	"name": "main",
 	"theme": {
 		"prefix": "thin",
 		"name": "thin",
@@ -44,6 +47,11 @@
 		"postcss-cli": "^8.3.1",
 		"postcss-nested": "^5.0.5",
 		"prettier": "npm:wp-prettier@2.0.5",
-		"tailwindcss": "^2.1.2"
+		"tailwindcss": "^2.1.2",
+		"webpack": "^5.38.1",
+		"webpack-cli": "^4.7.0"
+	},
+	"dependencies": {
+		"js-cookie": "^2.2.1"
 	}
 }
