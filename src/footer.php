@@ -1,37 +1,31 @@
 <?php
 /**
- * The template for displaying the footer.
+ * The template for displaying the footer
  *
- * Contains the closing of the #content div and all content after
+ * Contains the closing of the #content div and all content after.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package thin
  */
 
 ?>
 
-		</div><!-- .col-full -->
-	</div><!-- #content -->
-
-	<?php do_action( 'thin_before_footer' ); ?>
-
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="col-full">
-
-			<?php
-			/**
-			 * Functions hooked in to thin_footer action
-			 *
-			 * @hooked thin_footer_widgets - 10
-			 * @hooked thin_credit         - 20
-			 */
-			do_action( 'thin_footer' );
-			?>
-
-		</div><!-- .col-full -->
+	<footer id="colophon" class="site-footer">
+		<div class="site-info container">
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'vnh_textdomain' ) ); ?>">
+				<?php
+				/* translators: %s: CMS name, i.e. WordPress. */
+				printf( esc_html__( 'Proudly powered by %s', 'vnh_textdomain' ), 'WordPress' );
+				?>
+			</a>
+			<span class="sep"> | </span>
+				<?php
+				/* translators: 1: Theme name, 2: Theme author. */
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'vnh_textdomain' ), 'vnh_textdomain', '<a href="http://underscores.me/">Underscores.me</a>' );
+				?>
+		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-
-	<?php do_action( 'thin_after_footer' ); ?>
-
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

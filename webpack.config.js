@@ -5,7 +5,7 @@ module.exports = {
 		main: './src/assets/theme/index.js',
 	},
 	output: {
-		path: resolve( __dirname, './src/assets/js' ),
+		path: resolve( __dirname, './src/js' ),
 		filename: '[name].js',
 	},
 };
