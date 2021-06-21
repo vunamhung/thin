@@ -2,6 +2,13 @@
 
 namespace thin;
 
+/**
+ * Get theme info
+ *
+ * @param string $header
+ *
+ * @return array|false|string
+ */
 function get_theme_info( $header ) {
 	return wp_get_theme( get_option( 'template' ) )->get( $header );
 }

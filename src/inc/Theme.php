@@ -13,6 +13,14 @@ class Theme {
 	 */
 	public function __construct() {
 		$this->boot();
+		$this->load();
+	}
+
+	/**
+	 * Load
+	 */
+	public function load() {
+		new Customizer();
 	}
 
 	/**
