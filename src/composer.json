@@ -1,18 +1,18 @@
 {
-    "autoload": {
-        "files": [
-            "inc/bootstrap.php",
-            "inc/constant.php",
-            "inc/conditional.php",
-            "inc/template-tags.php"
-        ],
-        "psr-4": {
-            "thin\\": "inc"
-        }
-    },
-    "require": {
-        "tgmpa/tgm-plugin-activation": "^2.6.1"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+	"autoload": {
+		"files": [
+			"inc/bootstrap.php",
+			"inc/constant.php",
+			"inc/conditional.php",
+			"inc/template-tags.php"
+		],
+		"psr-4": {
+			"thin\\": "inc"
+		}
+	},
+	"require": {
+		"tgmpa/tgm-plugin-activation": "^2.6.1"
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
 }

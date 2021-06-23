@@ -71,11 +71,11 @@ function entry_footer() {
 				wp_kses(
 				/* translators: %s: post title */
 					__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'vnh_textdomain' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
+					[
+						'span' => [
+							'class' => [],
+						],
+					]
 				),
 				wp_kses_post( get_the_title() )
 			)
@@ -88,11 +88,11 @@ function entry_footer() {
 			wp_kses(
 			/* translators: %s: Name of current post. Only visible to screen readers */
 				__( 'Edit <span class="screen-reader-text">%s</span>', 'vnh_textdomain' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
+				[
+					'span' => [
+						'class' => [],
+					],
+				]
 			),
 			wp_kses_post( get_the_title() )
 		),
@@ -125,13 +125,13 @@ function post_thumbnail() {
 			<?php
 			the_post_thumbnail(
 				'post-thumbnail',
-				array(
+				[
 					'alt' => the_title_attribute(
-						array(
+						[
 							'echo' => false,
-						)
+						]
 					),
-				)
+				]
 			);
 			?>
 		</a>

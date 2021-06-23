@@ -21,10 +21,10 @@
 		the_content();
 
 		wp_link_pages(
-			array(
+			[
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'vnh_textdomain' ),
 				'after'  => '</div>',
-			)
+			]
 		);
 		?>
 	</div><!-- .entry-content -->
@@ -35,13 +35,13 @@
 			edit_post_link(
 				sprintf(
 					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
+					/* translators: %s: Name of current post. Only visible to screen readers */
 						__( 'Edit <span class="screen-reader-text">%s</span>', 'vnh_textdomain' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
+						[
+							'span' => [
+								'class' => [],
+							],
+						]
 					),
 					wp_kses_post( get_the_title() )
 				),

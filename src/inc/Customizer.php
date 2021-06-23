@@ -36,17 +36,17 @@ class Customizer {
 		if ( isset( $wp_customize->selective_refresh ) ) {
 			$wp_customize->selective_refresh->add_partial(
 				'blogname',
-				array(
+				[
 					'selector'        => '.site-title a',
 					'render_callback' => [ $this, 'customize_partial_blog_name' ],
-				)
+				]
 			);
 			$wp_customize->selective_refresh->add_partial(
 				'blogdescription',
-				array(
+				[
 					'selector'        => '.site-description',
 					'render_callback' => [ $this, 'customize_partial_blog_description' ],
-				)
+				]
 			);
 		}
 	}
@@ -73,7 +73,7 @@ class Customizer {
 	 * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
 	 */
 	public function customize_preview_js() {
-		wp_enqueue_script( 'thin-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), THEME_VERSION, true );
+		wp_enqueue_script( 'thin-customizer', get_template_directory_uri() . '/js/customizer.js', [ 'customize-preview' ], THEME_VERSION, true );
 	}
 
 }
