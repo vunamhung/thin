@@ -25,7 +25,7 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'vnh_textdomain' ); ?></a>
 
-	<header id="masthead" class="site-header">
+	<header id="masthead" class="site-header mb-8">
 		<div class="container">
 			<div class="site-branding">
 				<?php
@@ -63,3 +63,4 @@
 			</nav><!-- #site-navigation -->
 		</div>
 	</header><!-- #masthead -->
+	<div class="grid grid-cols-[2fr,1fr] gap-4 container">

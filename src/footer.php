@@ -11,6 +11,7 @@
 
 ?>
 
+</div>
 <footer id="colophon" class="site-footer">
 	<div class="site-info container">
 		<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'vnh_textdomain' ) ); ?>">

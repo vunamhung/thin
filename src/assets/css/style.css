@@ -17,8 +17,8 @@ Requires PHP: vnh_php_requires
 @tailwind components;
 @tailwind utilities;
 @layer components {
-	.site-main {
-		@apply container;
+	.nav-menu {
+		@apply flex space-x-3;
 	}
 }
 
