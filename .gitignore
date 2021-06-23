@@ -4,5 +4,5 @@ docs/
 dist/
 .idea/
 /src/languages/
-/src/assets/js/
+/src/js/
 /src/style.css

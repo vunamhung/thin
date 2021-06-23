@@ -159,9 +159,8 @@ class Theme {
 	 */
 	public function scripts() {
 		wp_enqueue_style( 'thin-style', get_stylesheet_uri(), array(), THEME_VERSION );
-		wp_style_add_data( 'thin-style', 'rtl', 'replace' );
 
-		wp_enqueue_script( 'thin-navigation', get_template_directory_uri() . '/js/navigation.js', array(), THEME_VERSION, true );
+		wp_enqueue_script( 'thin-main', get_template_directory_uri() . '/js/main.js', array(), THEME_VERSION, true );
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );

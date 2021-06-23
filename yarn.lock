@@ -4574,6 +4574,11 @@ domhandler@^4.0.0, domhandler@^4.2.0:
   dependencies:
     domelementtype "^2.2.0"
 
+domtastic@^0.15.12:
+  version "0.15.12"
+  resolved "https://registry.yarnpkg.com/domtastic/-/domtastic-0.15.12.tgz#3f7af442c863343e74b156ab69ed0d9e5042c1d6"
+  integrity sha512-znCwbb9ihRcIglgOgTmgsJIXkzVwEMdOC9AutZX2XjZz+rtW631BlDDd3BnmLY2aI5YCDzgwVak5i1ud25MIfw==
+
 domutils@^1.5.1, domutils@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/domutils/-/domutils-1.7.0.tgz#56ea341e834e06e6748af7a1cb25da67ea9f8c2a"
