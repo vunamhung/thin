@@ -40,7 +40,18 @@
 		<exclude-pattern>src/</exclude-pattern>
 		<exclude-pattern>tests/php</exclude-pattern>
 	</rule>
+
 	<rule ref="Squiz.Commenting.FileComment.Missing">
+		<exclude-pattern>src/</exclude-pattern>
+		<exclude-pattern>tests/php</exclude-pattern>
+	</rule>
+
+	<rule ref="Squiz.Commenting.FunctionComment.Missing">
+		<exclude-pattern>src/</exclude-pattern>
+		<exclude-pattern>tests/php</exclude-pattern>
+	</rule>
+
+	<rule ref="Squiz.Commenting.ClassComment.Missing">
 		<exclude-pattern>src/</exclude-pattern>
 		<exclude-pattern>tests/php</exclude-pattern>
 	</rule>
