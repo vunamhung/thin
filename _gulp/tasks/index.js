@@ -1,5 +1,6 @@
 import { task, parallel, series } from 'gulp';
 import { linkDev, linkThemes } from './setup';
+import { buildThemePotFile } from './language';
 import { bsLocal } from './browserSync';
 import {
 	cleanDist,
@@ -11,6 +12,7 @@ import {
 	zipTheme,
 } from './release';
 
+task( 'build:potFile', parallel( buildThemePotFile ) );
 task( 'link:themes', linkThemes );
 task( 'link:dev', linkDev );
 task(

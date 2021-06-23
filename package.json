@@ -8,6 +8,11 @@
 		"start": "webpack --watch & yarn css:dev"
 	},
 	"name": "main",
+	"languages": {
+		"team": "Avita Theme <avitatheme.com@gmail.com>",
+		"bugReport": "https://avitatheme.com",
+		"lastTranslator": "Vu Nam Hung <vunamhung@gmail.com>"
+	},
 	"theme": {
 		"prefix": "thin",
 		"name": "thin",
@@ -48,6 +53,8 @@
 		"gulp-notify": "^4.0.0",
 		"gulp-replace-task": "^2.0.1",
 		"gulp-size": "^4.0.1",
+		"gulp-sort": "^2.0.0",
+		"gulp-wp-pot": "^2.5.0",
 		"gulp-zip": "^5.1.0",
 		"node-wp-i18n": "1.2.5",
 		"postcss": "8.3.5",

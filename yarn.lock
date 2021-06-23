@@ -6768,6 +6768,22 @@ gulp-size@^4.0.1:
     stream-counter "^1.0.0"
     through2 "^4.0.2"
 
+gulp-sort@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-sort/-/gulp-sort-2.0.0.tgz#c6762a2f1f0de0a3fc595a21599d3fac8dba1aca"
+  integrity sha1-xnYqLx8N4KP8WVohWZ0/rI26Gso=
+  dependencies:
+    through2 "^2.0.1"
+
+gulp-wp-pot@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/gulp-wp-pot/-/gulp-wp-pot-2.5.0.tgz#3451484bfdf2442734fc057862d9b7bc6a994ab4"
+  integrity sha512-3IIVEsgAaRFi4DWv5hRZcM7VEsCtGD4ZxgPL8qPdX+yrSpwD8I2+Q1cP3olXhn7KLJsnGSNuqor5sxo97H5pmQ==
+  dependencies:
+    plugin-error "^1.0.1"
+    vinyl "^2.2.1"
+    wp-pot "^1.9.6"
+
 gulp-zip@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/gulp-zip/-/gulp-zip-5.1.0.tgz#38cc1d4c61bc2ab06b452ce463cbe2adc52b935e"
@@ -9027,6 +9043,14 @@ matchdep@^2.0.0:
     resolve "^1.4.0"
     stack-trace "0.0.10"
 
+matched@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/matched/-/matched-5.0.1.tgz#620606d9dac6b7f4e955354b82e02ef4e3a62dc3"
+  integrity sha512-E1fhSTPRyhAlNaNvGXAgZQlq1hL0bgYMTk/6bktVlIhzUnX/SZs7296ACdVeNJE8xFNGSuvd9IpI7vSnmcqLvw==
+  dependencies:
+    glob "^7.1.6"
+    picomatch "^2.2.1"
+
 math-random@^1.0.1:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/math-random/-/math-random-1.0.4.tgz#5dd6943c938548267016d4e34f057583080c514c"
@@ -10336,6 +10360,11 @@ path-root@^0.1.1:
   dependencies:
     path-root-regex "^0.1.0"
 
+path-sort@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/path-sort/-/path-sort-0.1.0.tgz#cb0175d4ecbfa5a18fe674cc6d720bfe15e0b805"
+  integrity sha1-ywF11Oy/paGP5nTMbXIL/hXguAU=
+
 path-starts-with@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/path-starts-with/-/path-starts-with-2.0.0.tgz#ffd6d51926cd497022b44d392196033d5451892f"
@@ -10387,6 +10416,11 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
+
+php-parser@^3.0.2:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/php-parser/-/php-parser-3.0.3.tgz#287779ea8a273ec5cf926f28e5f38ffa4ad32d4a"
+  integrity sha512-WjbrtYrwmLY9hpoKoq1+mVqJhT0dEVDZRWSpNIw2MpTw3VM/K4C6e0WR4KlU6G/XROkV7tpH4NesV2dDiPxqaw==
 
 picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3:
   version "2.3.0"
@@ -13048,7 +13082,7 @@ through2-filter@^3.0.0:
     through2 "~2.0.0"
     xtend "~4.0.0"
 
-through2@^2.0.0, through2@^2.0.3, through2@~2.0.0:
+through2@^2.0.0, through2@^2.0.1, through2@^2.0.3, through2@~2.0.0:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
   integrity sha512-/mrRod8xqpA+IHSLyGCQ2s8SPHiCDEeQJSep1jqLYeEUClOFG2Qsh+4FU6G9VeqpZnGW/Su8LQGc4YKni5rYSQ==
@@ -13830,7 +13864,7 @@ vinyl-sourcemap@^1.1.0:
     remove-bom-buffer "^3.0.0"
     vinyl "^2.0.0"
 
-vinyl@^2.0.0, vinyl@^2.1.0:
+vinyl@^2.0.0, vinyl@^2.1.0, vinyl@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/vinyl/-/vinyl-2.2.1.tgz#23cfb8bbab5ece3803aa2c0a1eb28af7cbba1974"
   integrity sha512-LII3bXRFBZLlezoG5FfZVcXflZgWP/4dCwKtxd5ky9+LOtM4CS3bIRQsmR1KMnMW07jpE8fqR2lcxPZ+8sJIcw==
@@ -14169,6 +14203,15 @@ worker-farm@^1.7.0:
   integrity sha512-rvw3QTZc8lAxyVrqcSGVm5yP/IJ2UcB3U0graE3LCFoZ0Yn2x4EoVSqJKdB/T5M+FLcRPjz4TDacRf3OCfNUzw==
   dependencies:
     errno "~0.1.7"
+
+wp-pot@^1.9.6:
+  version "1.9.9"
+  resolved "https://registry.yarnpkg.com/wp-pot/-/wp-pot-1.9.9.tgz#c8cf71f79aa9f7379a2b387b18b1162842c08264"
+  integrity sha512-cCtSeIyEe1u9DvJdgov4hGakMoabvLIwPZpCMqUKI5FnBoTMu7buQrIJar+JNIeRg/+RRxAKFtq4DsqH5GdJuQ==
+  dependencies:
+    matched "^5.0.0"
+    path-sort "^0.1.0"
+    php-parser "^3.0.2"
 
 wrap-ansi@^2.0.0:
   version "2.1.0"
