@@ -1,5 +1,5 @@
 import { task, parallel, series } from 'gulp';
-import { linkThemes } from './setup';
+import { linkDev, linkThemes } from './setup';
 import { bsLocal } from './browserSync';
 import {
 	cleanDist,
@@ -12,6 +12,7 @@ import {
 } from './release';
 
 task( 'link:themes', linkThemes );
+task( 'link:dev', linkDev );
 task(
 	'release',
 	series(

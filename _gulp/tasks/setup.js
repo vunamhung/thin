@@ -6,18 +6,31 @@ const localPath = getInfo( 'path' );
 const { theme } = require( '../../package' );
 
 export function linkThemes( done ) {
-	const themeFinalPath = resolve( `dist/done/${ theme.name }` ),
-		themePath = resolve( 'src' ),
-		targetThemePath = resolve( localPath, 'wp-content/themes' );
+	const themeFinalPath = resolve( `dist/done/${ theme.name }` );
+	const themePath = resolve( 'src' );
+	const targetThemePath = resolve( localPath, 'wp-content/themes' );
 
-	const linkFinalTheme = `ln -s ${ themeFinalPath } ${ targetThemePath }`,
-		linkDevTheme = `ln -s ${ themePath } ${ targetThemePath }`,
-		renameDevTheme = `mv ${ targetThemePath }/src ${ targetThemePath }/${ theme.name }-dev`,
-		cmd = `${ linkFinalTheme } && ${ linkDevTheme } && ${ renameDevTheme }`,
-		run = exec( cmd );
+	const linkFinalTheme = `ln -s ${ themeFinalPath } ${ targetThemePath }`;
+	const linkDevTheme = `ln -s ${ themePath } ${ targetThemePath }`;
+	const renameDevTheme = `mv ${ targetThemePath }/src ${ targetThemePath }/${ theme.name }-dev`;
+	const cmd = `${ linkFinalTheme } && ${ linkDevTheme } && ${ renameDevTheme }`;
+	const { stdout, stderr } = exec( cmd );
 
-	run.stdout.pipe( process.stdout );
-	run.stderr.pipe( process.stderr );
+	stdout.pipe( process.stdout );
+	stderr.pipe( process.stderr );
+
+	done();
+}
+
+export function linkDev( done ) {
+	const devPath = resolve( 'dev' );
+	const targetPluginPath = resolve( localPath, 'wp-content/plugins' );
+
+	const cmd = `ln -s ${ devPath } ${ targetPluginPath }`;
+	const { stdout, stderr } = exec( cmd );
+
+	stdout.pipe( process.stdout );
+	stderr.pipe( process.stderr );
 
 	done();
 }
