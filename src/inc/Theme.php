@@ -30,6 +30,13 @@ class Theme {
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( [ 'menu-1' => esc_html__( 'Primary', 'vnh_textdomain' ) ] );
 		add_theme_support( 'html5', [ 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' ] );
+		add_theme_support( 'responsive-embeds' );
+
+		add_theme_support( 'wp-block-styles' ); // Add support for Block Styles.
+		add_theme_support( 'align-wide' ); // Add support for full and wide align images.
+
+		add_theme_support( 'editor-styles' ); // Add support for editor styles.
+		add_editor_style( 'style-editor.css' ); // Enqueue editor styles.
 
 		// Set up the WordPress core custom background feature.
 		add_theme_support(

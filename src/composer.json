@@ -1,7 +1,6 @@
 {
 	"autoload": {
 		"files": [
-			"inc/bootstrap.php",
 			"inc/constant.php",
 			"inc/conditional.php",
 			"inc/template-tags.php"
