@@ -2,9 +2,9 @@
 	"author": "Vu Nam Hung",
 	"license": "GPL-3.0-or-later",
 	"scripts": {
-		"css:build": "NODE_ENV=production postcss ./src/assets/css/style.css -o ./src/style.css",
+		"css:build": "NODE_ENV=production tailwindcss -i ./src/assets/css/style.css -o ./src/style.css --minify",
 		"js:build": "webpack --mode=production",
-		"css:dev": "NODE_ENV=development postcss ./src/assets/css/style.css -o ./src/style.css -w",
+		"css:dev": "tailwindcss -i ./src/assets/css/style.css -o ./src/style.css --watch --jit",
 		"start": "webpack --watch & css:dev & gulp default"
 	},
 	"name": "main",
@@ -44,7 +44,6 @@
 		"gulp": "^4.0.2",
 		"node-wp-i18n": "1.2.5",
 		"postcss": "8.3.5",
-		"postcss-cli": "^8.3.1",
 		"postcss-nested": "^5.0.5",
 		"prettier": "npm:wp-prettier@2.0.5",
 		"tailwindcss": "2.2.2",
