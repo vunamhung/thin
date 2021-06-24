@@ -5,7 +5,7 @@
 		"css:build": "NODE_ENV=production postcss ./src/assets/css/style.css -o ./src/style.css",
 		"js:build": "webpack --mode=production",
 		"css:dev": "NODE_ENV=development postcss ./src/assets/css/style.css -o ./src/style.css -w",
-		"start": "webpack --watch & yarn css:dev"
+		"start": "webpack --watch & yarn css:dev & gulp default"
 	},
 	"name": "main",
 	"languages": {
