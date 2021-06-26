@@ -43,9 +43,10 @@ function is_script_debug() {
 }
 
 function is_live_preview( $theme_name ) {
-	$preview_theme = get_option( 'template' );
-	$active_theme  = wp_load_alloptions()['template'];
-	$is_wp_org     = strpos( home_url(), 'wp-themes.com' );
+	$cached_options = wp_load_alloptions();
+	$preview_theme  = get_option( 'template' );
+	$active_theme   = $cached_options['template'];
+	$is_wp_org      = strpos( home_url(), 'wp-themes.com' );
 
 	return ( $active_theme !== $preview_theme || ( $preview_theme === $theme_name && $is_wp_org ) ) && ! is_child_theme();
 }
