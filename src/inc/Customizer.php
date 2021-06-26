@@ -2,6 +2,8 @@
 
 namespace thin;
 
+use Kirki;
+
 class Customizer {
 	public function __construct() {
 		$this->boot();
@@ -9,10 +11,12 @@ class Customizer {
 
 	public function boot() {
 		add_action( 'customize_register', [ $this, 'customize_register' ] );
-		add_action( 'customize_preview_init', [ $this, 'customize_preview_js' ] );
+		add_filter( 'kirki_config', [ $this, 'url_path' ] );
+		add_action( 'widgets_init', [ $this, 'add_config' ], 99 );
+		add_action( 'widgets_init', [ $this, 'fields' ], 99 );
 	}
 
-	public function customize_register( $wp_customize ) {
+	public function customize_register( \WP_Customize_Manager $wp_customize ) {
 		$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 		$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
@@ -22,29 +26,51 @@ class Customizer {
 				'blogname',
 				[
 					'selector'        => '.site-title a',
-					'render_callback' => [ $this, 'customize_partial_blog_name' ],
+					'render_callback' => function () {
+						bloginfo( 'name' );
+					},
 				]
 			);
 			$wp_customize->selective_refresh->add_partial(
 				'blogdescription',
 				[
 					'selector'        => '.site-description',
-					'render_callback' => [ $this, 'customize_partial_blog_description' ],
+					'render_callback' => function () {
+						bloginfo( 'description' );
+					},
 				]
 			);
 		}
 	}
 
-	public function customize_partial_blog_name() {
-		bloginfo( 'name' );
+	public function url_path( $config ) {
+		$config['url_path'] = get_theme_file_uri( 'vendor/aristath/kirki/' );
+
+		return $config;
 	}
 
-	public function customize_partial_blog_description() {
-		bloginfo( 'description' );
+	public function add_config() {
+		Kirki::add_config(
+			THEME_SLUG,
+			[
+				'option_type' => 'theme_mod',
+				'capability'  => 'edit_theme_options',
+			]
+		);
 	}
 
-	public function customize_preview_js() {
-		wp_enqueue_script( 'thin-customizer', get_template_directory_uri() . '/js/customizer.js', [ 'customize-preview' ], THEME_VERSION, true );
+	public function fields() {
+		Kirki::add_field(
+			THEME_SLUG,
+			[
+				'type'        => 'color',
+				'settings'    => 'color_setting_hex',
+				'label'       => esc_html__( 'Color Control (hex-only)', 'vnh_textdomain' ),
+				'description' => esc_html__( 'This is a color control - without alpha channel.', 'vnh_textdomain' ),
+				'section'     => 'colors',
+				'default'     => '#0088CC',
+				'transport'   => 'postMessage',
+			]
+		);
 	}
-
 }

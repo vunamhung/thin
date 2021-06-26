@@ -56,6 +56,11 @@
 		<exclude-pattern>tests/php</exclude-pattern>
 	</rule>
 
+	<rule ref="Squiz.Commenting.VariableComment.Missing">
+		<exclude-pattern>src/</exclude-pattern>
+		<exclude-pattern>tests/php</exclude-pattern>
+	</rule>
+
 	<rule ref="Generic.Commenting">
 		<exclude-pattern>tests/</exclude-pattern>
 	</rule>

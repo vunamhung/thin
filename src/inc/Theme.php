@@ -4,8 +4,8 @@ namespace thin;
 
 class Theme {
 	public function __construct() {
-		$this->boot();
 		$this->load();
+		$this->boot();
 	}
 
 	public function load() {
@@ -19,6 +19,7 @@ class Theme {
 		add_action( 'wp_enqueue_scripts', [ $this, 'scripts' ] );
 		add_filter( 'body_class', [ $this, 'body_classes' ] );
 		add_action( 'wp_head', [ $this, 'pingback_header' ] );
+		add_action( 'tgmpa_register', [ $this, 'required_plugins' ] );
 	}
 
 	public function setup() {
@@ -37,18 +38,6 @@ class Theme {
 
 		add_theme_support( 'editor-styles' ); // Add support for editor styles.
 		add_editor_style( 'style-editor.css' ); // Enqueue editor styles.
-
-		// Set up the WordPress core custom background feature.
-		add_theme_support(
-			'custom-background',
-			apply_filters(
-				'thin_custom_background_args',
-				[
-					'default-color' => 'ffffff',
-					'default-image' => '',
-				]
-			)
-		);
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -112,4 +101,33 @@ class Theme {
 		}
 	}
 
+	public function required_plugins() {
+		$plugins = [
+			[
+				'name'     => 'BuddyPress',
+				'slug'     => 'buddypress',
+				'required' => false,
+			],
+			[
+				'name'        => 'WordPress SEO by Yoast',
+				'slug'        => 'wordpress-seo',
+				'is_callable' => 'wpseo_init',
+			],
+		];
+
+		$config = [
+			'id'           => 'vnh_textdomain',
+			'default_path' => '',
+			'menu'         => 'thin-install-plugins',
+			'parent_slug'  => 'themes.php',
+			'capability'   => 'edit_theme_options',
+			'has_notices'  => true,
+			'dismissable'  => true,
+			'dismiss_msg'  => '',
+			'is_automatic' => false,
+			'message'      => '',
+		];
+
+		tgmpa( $plugins, $config );
+	}
 }

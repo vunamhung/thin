@@ -3,11 +3,16 @@
 		"files": [
 			"inc/constant.php",
 			"inc/conditional.php",
-			"inc/template-tags.php"
+			"inc/template-tags.php",
+			"vendor/aristath/kirki/kirki.php"
 		],
 		"psr-4": {
 			"thin\\": "inc"
 		}
+	},
+	"require": {
+		"tgmpa/tgm-plugin-activation": "^2.6.1",
+		"aristath/kirki": "3.1.7"
 	},
 	"minimum-stability": "dev",
 	"prefer-stable": true
