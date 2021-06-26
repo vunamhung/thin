@@ -44,10 +44,10 @@ function is_script_debug() {
 
 function is_live_preview( $theme_name ) {
 	$preview_theme = get_option( 'template' );
-	$active_theme  = get_cached_option( 'template' );
+	$active_theme  = wp_load_alloptions()['template'];
 	$is_wp_org     = strpos( home_url(), 'wp-themes.com' );
 
-	return ( $active_theme !== $preview_theme || ( $preview_theme === $theme_name && $is_wp_org !== false ) ) && ! is_child_theme();
+	return ( $active_theme !== $preview_theme || ( $preview_theme === $theme_name && $is_wp_org ) ) && ! is_child_theme();
 }
 
 function is_dev() {
