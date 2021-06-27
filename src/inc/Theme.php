@@ -10,6 +10,7 @@ class Theme {
 
 	public function load() {
 		new Customizer();
+		new Comments();
 	}
 
 	public function boot() {

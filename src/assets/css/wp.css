@@ -23,7 +23,7 @@ a {
 	margin: 0 0 1.5em;
 }
 
-.updated:not(.published) {
+.updated:not( .published ) {
 	display: none;
 }
 
@@ -96,35 +96,35 @@ a {
 }
 
 .gallery-columns-2 {
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat( 2, 1fr );
 }
 
 .gallery-columns-3 {
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat( 3, 1fr );
 }
 
 .gallery-columns-4 {
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat( 4, 1fr );
 }
 
 .gallery-columns-5 {
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat( 5, 1fr );
 }
 
 .gallery-columns-6 {
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat( 6, 1fr );
 }
 
 .gallery-columns-7 {
-	grid-template-columns: repeat(7, 1fr);
+	grid-template-columns: repeat( 7, 1fr );
 }
 
 .gallery-columns-8 {
-	grid-template-columns: repeat(8, 1fr);
+	grid-template-columns: repeat( 8, 1fr );
 }
 
 .gallery-columns-9 {
-	grid-template-columns: repeat(9, 1fr);
+	grid-template-columns: repeat( 9, 1fr );
 }
 
 .gallery-caption {
@@ -142,8 +142,8 @@ a {
 
 .screen-reader-text {
 	border: 0;
-	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
+	clip: rect( 1px, 1px, 1px, 1px );
+	clip-path: inset( 50% );
 	height: 1px;
 	margin: -1px;
 	overflow: hidden;
@@ -154,7 +154,7 @@ a {
 	&:focus {
 		background-color: #f1f1f1;
 		border-radius: 3px;
-		box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+		box-shadow: 0 0 2px 2px rgba( 0, 0, 0, 0.6 );
 		clip: auto !important;
 		clip-path: none;
 		color: #21759b;
@@ -194,4 +194,26 @@ a {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 1.5em;
+}
+
+.comment-reply-title {
+	@apply text-3xl;
+}
+.comment-form-comment {
+	@apply block w-full rounded border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+}
+
+.comment-form {
+	@apply mb-4;
+	input[type='email'],
+	input[type='text'],
+	input[type='url'] {
+		@apply mt-2 block w-full rounded border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+	}
+	.comment-form-cookies-consent {
+		@apply my-2;
+	}
+	.submit {
+		@apply px-3 py-1 cursor-pointer;
+	}
 }
