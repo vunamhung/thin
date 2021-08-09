@@ -10,7 +10,7 @@ License URI: vnh_license_uri
 Text Domain: vnh_textdomain
 Tags: vnh_tags
 Document URI: vnh_document_uri
-Tested up to: WordPress vnh_tested_up_to
+Tested up to: vnh_tested_up_to
 Requires PHP: vnh_php_requires
 */
 @import 'tailwindcss/base';
