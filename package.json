@@ -2,10 +2,10 @@
 	"author": "Vu Nam Hung",
 	"license": "GPL-3.0-or-later",
 	"scripts": {
-		"css:build": "NODE_ENV=production tailwind -i ./src/assets/css/style.css -o ./src/style.css --postcss",
+		"css:build": "tailwindcss -i ./src/assets/css/style.css -o ./src/style.css --postcss",
 		"js:build": "webpack --mode=production",
-		"css:dev": "NODE_ENV=development tailwind -i ./src/assets/css/style.css -o ./src/style.css --watch --postcss",
-		"start": "webpack --watch & yarn css:dev & gulp default"
+		"css:dev": "tailwindcss -i ./src/assets/css/style.css -o ./src/style.css --watch --postcss",
+		"dev": "webpack --watch & npm run css:dev"
 	},
 	"name": "main",
 	"languages": {
@@ -34,8 +34,14 @@
 		"copyright": "Copyright (c) 2019, Hung Vu",
 		"description": "The best food blog WordPress theme"
 	},
+	"dependencies": {
+		"js-cookie": "^3.0.1",
+		"mmenu-js": "8.5.24"
+	},
 	"devDependencies": {
-		"@tailwindcss/forms": "^0.3.3",
+		"@tailwindcss/forms": "^0.5.2",
+		"@tailwindcss/line-clamp": "^0.4.0",
+		"@tailwindcss/typography": "^0.5.6",
 		"@woocommerce/eslint-plugin": "1.2.0",
 		"@wordpress/browserslist-config": "4.0.1",
 		"@wordpress/env": "4.0.5",
@@ -43,11 +49,15 @@
 		"@wordpress/scripts": "16.1.3",
 		"@wordpress/stylelint-config": "19.0.5",
 		"autoprefixer": "10.2.6",
+		"babel-loader": "^8.2.5",
 		"browser-sync": "2.21.0",
+		"browser-sync-webpack-plugin": "^2.3.0",
 		"browserslist": "4.16.6",
+		"css-loader": "^6.7.1",
 		"cssnano": "5.0.6",
 		"del": "^6.0.0",
 		"delete-empty": "^3.0.0",
+		"duplicate-package-checker-webpack-plugin": "^3.0.0",
 		"eslint-plugin-prettier": "^3.4.0",
 		"esm": "^3.2.25",
 		"gulp": "^4.0.2",
@@ -57,13 +67,16 @@
 		"gulp-sort": "^2.0.0",
 		"gulp-wp-pot": "^2.5.0",
 		"gulp-zip": "^5.1.0",
+		"mini-css-extract-plugin": "^2.6.1",
 		"node-wp-i18n": "1.2.5",
-		"postcss": "8.3.5",
-		"postcss-import": "^14.0.2",
-		"postcss-nested": "^5.0.5",
-		"prettier": "npm:wp-prettier@2.0.5",
-		"tailwindcss": "2.2.4",
-		"webpack": "5.40.0",
+		"postcss": "8.4.16",
+		"postcss-import": "^14.1.0",
+		"postcss-import-ext-glob": "^2.0.1",
+		"postcss-nested": "^5.0.6",
+		"prettier": "^2.7.1",
+		"prettier-plugin-tailwindcss": "^0.1.13",
+		"tailwindcss": "3.1.8",
+		"webpack": "5.44.0",
 		"webpack-cli": "4.7.2"
 	}
 }

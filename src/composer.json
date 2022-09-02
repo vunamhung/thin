@@ -1,8 +1,6 @@
 {
 	"autoload": {
 		"files": [
-			"inc/constant.php",
-			"inc/conditional.php",
 			"inc/template-tags.php",
 			"vendor/aristath/kirki/kirki.php"
 		],
@@ -11,9 +9,16 @@
 		}
 	},
 	"require": {
+		"php-di/php-di": "6.3.5",
 		"tgmpa/tgm-plugin-activation": "^2.6.1",
-		"aristath/kirki": "3.1.7"
+		"aristath/kirki": "4.0.24",
+		"vunamhung/wptoolkit": "0.9.22"
 	},
 	"minimum-stability": "dev",
-	"prefer-stable": true
+	"prefer-stable": true,
+	"config": {
+		"platform": {
+			"php": "7.2.34"
+		}
+	}
 }

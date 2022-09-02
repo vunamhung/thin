@@ -1,0 +1,15 @@
+a {
+	@apply text-primary-500;
+	&:hover,
+	&:focus,
+	&:active {
+		color: #191970;
+	}
+	&:focus {
+		outline: thin dotted;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}

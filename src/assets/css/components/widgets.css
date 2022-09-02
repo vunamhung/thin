@@ -1,0 +1,15 @@
+.widget-title {
+	@apply mb-2 text-base font-medium text-gray-600;
+}
+.widget {
+	a,
+	& {
+		@apply text-sm text-gray-500;
+	}
+	a {
+		@apply hover:underline;
+	}
+	ul {
+		@apply space-y-2;
+	}
+}

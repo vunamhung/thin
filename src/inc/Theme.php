@@ -2,25 +2,41 @@
 
 namespace thin;
 
-class Theme {
+use vnh\Allowed_HTML;
+use vnh\contracts\Bootable;
+use vnh\Register_Widget_Areas;
+use vnh\Register_Widgets;
+
+use const vnh\THEME_VERSION;
+
+class Theme implements Bootable {
+	use Theme_Supports;
+
 	public function __construct() {
 		$this->load();
 		$this->boot();
 	}
 
 	public function load() {
-		new Customizer();
-		new Comments();
+		$services = Container::instance()->services;
+
+		$services->get( Allowed_HTML::class )->boot();
+		$services->get( Customizer::class )->boot();
+		$services->get( Comments::class )->boot();
+		$services->get( ACF::class )->boot();
+		$services->get( Menu::class )->boot();
+		$services->get( Social_Menu::class )->boot();
+		$services->get( Register_Widgets::class )->boot();
+		$services->get( Register_Widget_Areas::class )->boot();
 	}
 
 	public function boot() {
 		add_action( 'after_setup_theme', [ $this, 'setup' ] );
 		add_action( 'after_setup_theme', [ $this, 'content_width' ], 0 );
-		add_action( 'widgets_init', [ $this, 'widgets_init' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'scripts' ] );
 		add_filter( 'body_class', [ $this, 'body_classes' ] );
 		add_action( 'wp_head', [ $this, 'pingback_header' ] );
-		add_action( 'tgmpa_register', [ $this, 'required_plugins' ] );
+		add_filter( 'wp_nav_menu_objects', [ $this, 'nav_menu_objects' ], 10, 2 );
 	}
 
 	public function setup() {
@@ -46,30 +62,19 @@ class Theme {
 		add_theme_support(
 			'custom-logo',
 			[
-				'height'      => 250,
-				'width'       => 250,
-				'flex-width'  => true,
+				'flex-width' => true,
 				'flex-height' => true,
 			]
 		);
+
+		// Disables the block editor
+		add_filter( 'use_widgets_block_editor', '__return_false', 10 );
+		add_filter( 'use_block_editor_for_post_type', '__return_false', 10, 2 );
+		add_filter( 'gutenberg_use_widgets_block_editor', '__return_false', 100 );
 	}
 
 	public function content_width() {
 		$GLOBALS['content_width'] = apply_filters( 'thin_content_width', 640 );
-	}
-
-	public function widgets_init() {
-		register_sidebar(
-			[
-				'name'          => esc_html__( 'Sidebar', 'vnh_textdomain' ),
-				'id'            => 'sidebar-1',
-				'description'   => esc_html__( 'Add widgets here.', 'vnh_textdomain' ),
-				'before_widget' => '<section id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</section>',
-				'before_title'  => '<h2 class="widget-title">',
-				'after_title'   => '</h2>',
-			]
-		);
 	}
 
 	public function scripts() {
@@ -102,33 +107,14 @@ class Theme {
 		}
 	}
 
-	public function required_plugins() {
-		$plugins = [
-			[
-				'name'     => 'BuddyPress',
-				'slug'     => 'buddypress',
-				'required' => false,
-			],
-			[
-				'name'        => 'WordPress SEO by Yoast',
-				'slug'        => 'wordpress-seo',
-				'is_callable' => 'wpseo_init',
-			],
-		];
+	public function nav_menu_objects( $items, $args ) {
+		foreach ( $items as &$item ) {
+			$enable_mega_menu = get_field( 'enable_mega_menu', $item );
+			if ( $enable_mega_menu ) {
+				$item->classes[] = 'mega-menu';
+			}
+		}
 
-		$config = [
-			'id'           => 'vnh_textdomain',
-			'default_path' => '',
-			'menu'         => 'thin-install-plugins',
-			'parent_slug'  => 'themes.php',
-			'capability'   => 'edit_theme_options',
-			'has_notices'  => true,
-			'dismissable'  => true,
-			'dismiss_msg'  => '',
-			'is_automatic' => false,
-			'message'      => '',
-		];
-
-		tgmpa( $plugins, $config );
+		return $items;
 	}
 }

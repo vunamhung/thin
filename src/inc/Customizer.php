@@ -11,8 +11,6 @@ class Customizer {
 
 	public function boot() {
 		add_action( 'customize_register', [ $this, 'customize_register' ] );
-		add_filter( 'kirki_config', [ $this, 'url_path' ] );
-		add_action( 'widgets_init', [ $this, 'add_config' ], 99 );
 		add_action( 'widgets_init', [ $this, 'fields' ], 99 );
 	}
 
@@ -43,34 +41,6 @@ class Customizer {
 		}
 	}
 
-	public function url_path( $config ) {
-		$config['url_path'] = get_theme_file_uri( 'vendor/aristath/kirki/' );
-
-		return $config;
-	}
-
-	public function add_config() {
-		Kirki::add_config(
-			THEME_SLUG,
-			[
-				'option_type' => 'theme_mod',
-				'capability'  => 'edit_theme_options',
-			]
-		);
-	}
-
 	public function fields() {
-		Kirki::add_field(
-			THEME_SLUG,
-			[
-				'type'        => 'color',
-				'settings'    => 'color_setting_hex',
-				'label'       => esc_html__( 'Color Control (hex-only)', 'vnh_textdomain' ),
-				'description' => esc_html__( 'This is a color control - without alpha channel.', 'vnh_textdomain' ),
-				'section'     => 'colors',
-				'default'     => '#0088CC',
-				'transport'   => 'postMessage',
-			]
-		);
 	}
 }

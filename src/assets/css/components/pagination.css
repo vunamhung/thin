@@ -1,0 +1,15 @@
+.pagination {
+	@apply my-12;
+	.nav-links {
+		@apply text-center;
+		& > * {
+			@apply px-2 py-1 border border-gray-300 rounded mx-1;
+		}
+		.current {
+			@apply border-gray-500 bg-primary-500 text-white;
+		}
+		a {
+
+		}
+	}
+}

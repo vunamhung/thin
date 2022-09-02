@@ -4,7 +4,7 @@
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
-( function () {
+( function() {
 	const siteNavigation = document.getElementById( 'site-navigation' );
 
 	// Return early if the navigation don't exist.
@@ -15,14 +15,14 @@
 	const button = siteNavigation.getElementsByTagName( 'button' )[ 0 ];
 
 	// Return early if the button don't exist.
-	if ( typeof button === 'undefined' ) {
+	if ( 'undefined' === typeof button ) {
 		return;
 	}
 
 	const menu = siteNavigation.getElementsByTagName( 'ul' )[ 0 ];
 
 	// Hide menu toggle button if menu is empty and return early.
-	if ( typeof menu === 'undefined' ) {
+	if ( 'undefined' === typeof menu ) {
 		button.style.display = 'none';
 		return;
 	}
@@ -32,7 +32,7 @@
 	}
 
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
-	button.addEventListener( 'click', function () {
+	button.addEventListener( 'click', function() {
 		siteNavigation.classList.toggle( 'toggled' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
@@ -43,7 +43,7 @@
 	} );
 
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
-	document.addEventListener( 'click', function ( event ) {
+	document.addEventListener( 'click', function( event ) {
 		const isClickInside = siteNavigation.contains( event.target );
 
 		if ( ! isClickInside ) {
@@ -56,9 +56,7 @@
 	const links = menu.getElementsByTagName( 'a' );
 
 	// Get all the link elements with children within the menu.
-	const linksWithChildren = menu.querySelectorAll(
-		'.menu-item-has-children > a, .page_item_has_children > a'
-	);
+	const linksWithChildren = menu.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
 
 	// Toggle focus each time a menu link is focused or blurred.
 	for ( const link of links ) {
@@ -98,4 +96,4 @@
 			menuItem.classList.toggle( 'focus' );
 		}
 	}
-} )();
+}() );

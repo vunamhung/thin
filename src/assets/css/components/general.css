@@ -1,0 +1,8 @@
+@layer utilities {
+	.align-full {
+		width: 100vw;
+		position: relative;
+		left: 50%;
+		transform: translateX(-50vw);
+	}
+}

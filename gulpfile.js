@@ -1,1 +1,1 @@
-module.exports = require( 'esm' )( module )( './_gulp/tasks' );
+module.exports = require( 'esm' )( module )( './_gulp' );

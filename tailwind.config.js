@@ -1,16 +1,42 @@
-const { fontFamily, spacing } = require( 'tailwindcss/defaultTheme' );
+const { spacing } = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin');
+const colors = require('tailwindcss/colors');
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-	mode: process.env.NODE_ENV ? 'jit' : undefined, // This "hack" ensures your IDE detects all normal.
-	purge: [ './src/**/*.{html,js,php}' ],
+	mode: 'jit',
+	content: ['./src/**/*.{html,js,php}'],
 	theme: {
-		fontFamily: {
-			sans: [ 'Noto Sans', ...fontFamily.sans ],
+		gridAutoFit: {
+			1: spacing[1],
+		},
+		gridAutoFill: {
+			1: spacing[1],
 		},
 		extend: {
+			colors: {
+				neutral: colors.slate,
+				positive: colors.green,
+				urge: colors.violet,
+				warning: colors.yellow,
+				info: colors.blue,
+				critical: colors.red,
+				primary: {
+					50: '#f2f7fb',
+					100: '#e6eff7',
+					200: '#bfd8ec',
+					300: '#99c1e0',
+					400: '#4d92c9',
+					500: '#0063b2',
+					600: '#0059a0',
+					700: '#004a86',
+					800: '#003b6b',
+					900: '#003157',
+				},
+			},
 			container: {
 				center: true,
-				padding: spacing[ 6 ],
+				padding: spacing[6],
 				screens: {
 					sm: '100%',
 					md: '640px',
@@ -68,5 +94,20 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [ require( '@tailwindcss/forms' ) ],
+	plugins: [
+		plugin(({ matchUtilities, theme, addVariant }) => {
+			addVariant('child', '&>*');
+			matchUtilities(
+				{ 'grid-auto-fit': (value) => ({ gridTemplateColumns: `repeat(auto-fit, minmax(${value}, 1fr))` }) },
+				{ values: theme('gridAutoFit') },
+			);
+			matchUtilities(
+				{ 'grid-auto-fill': (value) => ({ gridTemplateColumns: `repeat(auto-fill, minmax(${value}, 1fr))` }) },
+				{ values: theme('gridAutoFill') },
+			);
+		}),
+		require('@tailwindcss/typography'),
+		require('@tailwindcss/line-clamp'),
+		require('@tailwindcss/forms')({ strategy: 'class' }),
+	],
 };
